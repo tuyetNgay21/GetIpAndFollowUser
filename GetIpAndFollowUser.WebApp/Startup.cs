@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GetIpAndFollowUser.Data.EF;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +26,9 @@ namespace GetIpAndFollowUser.WebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //add confing to database
+            services.AddDbContext<ConnectDatabaseContext>(options =>
+                 options.UseSqlServer(Configuration.GetConnectionString("ConnectDatabaseContextString")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
