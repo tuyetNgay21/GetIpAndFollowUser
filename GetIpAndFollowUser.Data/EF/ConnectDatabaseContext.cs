@@ -1,4 +1,5 @@
-﻿using GetIpAndFollowUser.Data.Entity;
+﻿using GetIpAndFollowUser.Data.ConfigTable;
+using GetIpAndFollowUser.Data.Entity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,13 @@ namespace GetIpAndFollowUser.Data.EF
         public ConnectDatabaseContext(DbContextOptions options) : base(options)
         {
 
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new ConfingTableLocationUser());
+            modelBuilder.ApplyConfiguration(new ConfingTableLocationDetail());
+            modelBuilder.ApplyConfiguration(new ConfingTableFollowWorkingPage());
         }
         
         public DbSet<FollowWorkingPage> FollowWorkingPages { get; protected set; }

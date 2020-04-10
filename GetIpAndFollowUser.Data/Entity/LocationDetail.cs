@@ -6,11 +6,13 @@ namespace GetIpAndFollowUser.Data.Entity
 {
     public class LocationDetail
     {
-        public int id { get; protected set; }
-        public string Country { get; protected set; }
-        public string Province { get; protected set; }
-        public string District { get; protected set; }
-        public string SmallAddress { get; protected set; }
-        public int IdLocationUser { get; protected set; }
+        public int Id { get; set; }
+        public string Country { get; set; }
+        public string Province { get; set; }
+        public string District { get; set; }
+        public string SmallAddress { get; set; }
+        public int? IdLocationUser { get; set; }
+
+        public virtual LocationUser IdLocationUserNavigation { get; set; }
     }
 }
