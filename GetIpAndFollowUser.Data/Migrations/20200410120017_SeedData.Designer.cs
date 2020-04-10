@@ -4,14 +4,16 @@ using GetIpAndFollowUser.Data.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GetIpAndFollowUser.Data.Migrations
 {
     [DbContext(typeof(ConnectDatabaseContext))]
-    partial class ConnectDatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20200410120017_SeedData")]
+    partial class SeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
